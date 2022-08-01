@@ -21,21 +21,24 @@ public class CategoryController {
     @Autowired
     CategoryService categoryService;
 
+    CategoryController(CategoryService categoryService){
+        this.categoryService = categoryService;
+    }
     @GetMapping("/allCategory")
     public List<Category> findAllCategory() {
 
-        return CategoryService.findAll();
+        return categoryService.findAll();
     }
 
     @PostMapping("/create-Category")
     Category newCategory(@RequestBody Category newCategory) {
-        return CategoryService.save(newCategory);
+        return categoryService.save(newCategory);
 
     }
 
     @DeleteMapping("/delete-Category")
     void deleteCategory(@PathVariable Long id) {
-        CategoryService.deletedById(id);
+        categoryService.deletedById(id);
 
     }
 
@@ -45,7 +48,7 @@ public class CategoryController {
         System.out.println(product);
         Category category = new Category();
         updateProduct.setProduct(product);
-        Category categoryProduct = CategoryService.save(updateProduct);
+        Category categoryProduct = categoryService.save(updateProduct);
         return categoryProduct;
 
 

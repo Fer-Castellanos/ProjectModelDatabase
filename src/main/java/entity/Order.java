@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,9 +18,12 @@ public class Order {
     private long idOrder;
 
     @Column(name = "orderDate")
-    //private date orderDate;
+    private date orderDate;
 
     List<Product> list = new ArrayList<>();
+
+    @Column(name = "totalAmount")
+    private BigDecimal totalAmount;
 
 
     public long getIdOrder() {

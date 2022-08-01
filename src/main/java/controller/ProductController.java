@@ -25,21 +25,25 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
+    ProductController(OrderService orderService){
+        this.productService = productService;
+    }
+
     @GetMapping("/allProduct")
     public List<Product> findAllProduct() {
 
-        return ProductService.findAll();
+        return productService.findAll();
     }
 
     @PostMapping("/create-Product")
     Order newOrder(@RequestBody Product newOrder) {
-        return ProductService.save(newOrder);
+        return productService.save(newOrder);
 
     }
 
     @DeleteMapping("/delete-Product")
     void deleteProduct(@PathVariable Long id) {
-        ProductService.deletedById(id);
+        productService.deletedById(id);
 
     }
 
@@ -49,7 +53,7 @@ public class ProductController {
         System.out.println(product);
         Product product = new Product();
         updateProduct.setProduct(product);
-        Product updateProduct = OrderService.save(updateProduct);
+        Product updateProduct = productService.save(updateProduct);
         return productProduct;
 
 

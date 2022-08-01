@@ -23,31 +23,35 @@ public class OrderController {
     @Autowired
     OrderService orderService;
 
+    OrderController(OrderService orderService){
+        this.orderService = orderService;
+    }
+
     @GetMapping("/allOrder")
     public List<Order> findAllOrder() {
 
-        return OrderService.findAll();
+        return orderService.findAll();
     }
 
     @PostMapping("/create-Order")
     Order newOrder(@RequestBody Order newOrder) {
-        return OrderService.save(newOrder);
+        return orderService.save(newOrder);
 
     }
 
     @DeleteMapping("/delete-Order")
     void deleteOrder(@PathVariable Long id) {
-        OrderService.deletedById(id);
+        orderService.deletedById(id);
 
     }
 
     @PutMapping("/update-Order")
-    Order updateNumOrder(@RequestBody Order updateNewOrder, @PathVariable Long id) {
-        Integer NumOrder = updateNumOrder.getNumOrder();
-        System.out.println(NumOrder);
+    Order updateOrder(@RequestBody Order updateNewOrder, @PathVariable Long id) {
+        Integer Order = updateOrder.getNumOrder();
+        System.out.println(Order);
         Order order= new Order();
         updateNewOrder.setOrder(order);
-        Order orderNumOrder = OrderService.save(updateNewOrder);
+        Order orderNumOrder = orderService.save(updateNewOrder);
         return orderNumOrder;
 
 
