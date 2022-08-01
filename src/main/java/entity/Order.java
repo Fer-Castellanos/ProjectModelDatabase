@@ -21,6 +21,23 @@ public class Order {
 
     List<Product> list = new ArrayList<>();
 
-   // @Column(name = "totalAmount")
-   // private bigdecimal totalAmount;
+
+    public long getIdOrder() {
+        return idOrder;
+    }
+
+    public List<Product> getList() {
+        return list;
+    }
+
+    public void setIdOrder(long idOrder) {
+        this.idOrder = idOrder;
+    }
+
+    public void setList(List<Product> list) {
+        this.list = list;
+    }
+
+    public void setOrder(Order order) {
+    }
 }

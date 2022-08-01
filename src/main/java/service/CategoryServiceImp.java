@@ -11,19 +11,21 @@ import java.util.List;
 public class CategoryServiceImp implements CategoryService {
 
     @Autowired
-    CategoryRepository categoryRepository;
+    CategoryService categoryService;
 
-   @Override
-   public  List<Category> findAll() {
-      // return (List<Category>) CategoryRepository.findAll;
-  // }
+    @Override
+    public List<Category> findAll() {
+        return (List<Category>) categoryService.findAll();
+    }
 
-
+    @Override
     public Category save(Category newCategory) {
-        return newCategory;
+        return categoryService.save(newCategory);
     }
 
-    static void deletedById(Long id) {
-    }
+    @Override
+    public void deletedById(Long id) {
+        categoryService.deletedById(id);
 
+    }
 }

@@ -6,16 +6,14 @@ import java.util.List;
 
 public interface CategoryService {
 
-    static List<Category> findAll() {
-        return null;
-    }
+     List<Category> findAll(); //get
 
-    static Category save(Category newCategory) {
-        return newCategory;
-    }
 
-    static void deletedById(Long id) {
-    }
+      Category save(Category newCategory); //create
+
+
+     void deletedById(Long id); //delete
+
 
 
 }
