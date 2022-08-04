@@ -1,7 +1,9 @@
-package repository;
+package com.example.RestaurantAcc.repository;
 
-import entity.Order;
+import com.example.RestaurantAcc.entity.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface OrderRepository extends JpaRepository<Order, Long> {
+
+
 }

@@ -1,4 +1,4 @@
-package entity;
+package com.example.RestaurantAcc.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 
-@Table (name = "CATEGORY")
+@Table (name = "category")
 public class Category {
 
     @Id
@@ -25,34 +25,34 @@ public class Category {
     private String description;
 
     public long getIdCategory() {
+
         return idCategory;
     }
 
     public String getName() {
+
         return name;
     }
 
     public String getDescription() {
+
         return description;
     }
 
     public void setIdCategory(long idCategory) {
+
         this.idCategory = idCategory;
     }
 
     public void setName(String name) {
+
         this.name = name;
     }
 
     public void setDescription(String description) {
+
         this.description = description;
     }
 
 
-    public Integer getProduct() {
-        return null;
-    }
-
-    public void setProduct(Integer product) {
-    }
 }

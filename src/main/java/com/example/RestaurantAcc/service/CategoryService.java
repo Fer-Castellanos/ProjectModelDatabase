@@ -1,6 +1,6 @@
-package service;
+package com.example.RestaurantAcc.service;
 
-import entity.Category;
+import com.example.RestaurantAcc.entity.Category;
 
 import java.util.List;
 

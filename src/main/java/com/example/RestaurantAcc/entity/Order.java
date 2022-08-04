@@ -1,11 +1,17 @@
-package entity;
+package com.example.RestaurantAcc.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -14,13 +20,20 @@ import java.util.List;
 public class Order {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //te genera el numero automaticamente para el id
     @Column(name = "idOrder")
     private long idOrder;
 
     @Column(name = "orderDate")
-    private date orderDate;
+    private Date orderDate;
 
-    List<Product> list = new ArrayList<>();
+    // accesos como puedes utilizar el framework hibernate
+    //nos ayuda a definir la relacion de uno a muchos
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idOrder")
+    private List<Product> list = new ArrayList<>();
+
+
 
     @Column(name = "totalAmount")
     private BigDecimal totalAmount;

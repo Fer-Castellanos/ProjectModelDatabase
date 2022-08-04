@@ -1,7 +1,6 @@
-package controller;
+package com.example.RestaurantAcc.controller;
 
-import entity.Category;
-import entity.Order;
+import com.example.RestaurantAcc.entity.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,8 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import service.CategoryService;
-import service.OrderService;
+import com.example.RestaurantAcc.service.OrderService;
 
 import java.util.List;
 
@@ -46,11 +44,8 @@ public class OrderController {
     }
 
     @PutMapping("/update-Order")
-    Order updateOrder(@RequestBody Order updateNewOrder, @PathVariable Long id) {
-        Integer Order = updateOrder.getNumOrder();
-        System.out.println(Order);
-        Order order= new Order();
-        updateNewOrder.setOrder(order);
+    Order updateOrder(@RequestBody Order updateNewOrder) {
+
         Order orderNumOrder = orderService.save(updateNewOrder);
         return orderNumOrder;
 

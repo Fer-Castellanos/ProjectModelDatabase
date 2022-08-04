@@ -1,8 +1,6 @@
-package controller;
+package com.example.RestaurantAcc.controller;
 
-import entity.Category;
-import entity.Order;
-import entity.Product;
+import com.example.RestaurantAcc.entity.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,9 +10,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import service.CategoryService;
-import service.OrderService;
-import service.ProductService;
+import com.example.RestaurantAcc.service.OrderService;
+import com.example.RestaurantAcc.service.ProductService;
 
 import java.util.List;
 
@@ -36,7 +33,7 @@ public class ProductController {
     }
 
     @PostMapping("/create-Product")
-    Order newOrder(@RequestBody Product newOrder) {
+    Product newProduct(@RequestBody Product newOrder) {
         return productService.save(newOrder);
 
     }
@@ -48,14 +45,9 @@ public class ProductController {
     }
 
     @PutMapping("/update-Product")
-    Product updateProduct(@RequestBody Product updateProduct, @PathVariable Long id) {
-        Integer product = updateProduct.getProduct();
-        System.out.println(product);
-        Product product = new Product();
-        updateProduct.setProduct(product);
-        Product updateProduct = productService.save(updateProduct);
-        return productProduct;
+    Product updateNewProduct(@RequestBody Product updateNewProduct) {
 
+        return productService.save(updateNewProduct);
 
     }
 

@@ -1,9 +1,9 @@
-package service;
+package com.example.RestaurantAcc.service;
 
-import entity.Category;
+import com.example.RestaurantAcc.entity.Category;
+import com.example.RestaurantAcc.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.CategoryRepository;
 
 import java.util.List;
 
@@ -11,21 +11,21 @@ import java.util.List;
 public class CategoryServiceImp implements CategoryService {
 
     @Autowired
-    CategoryService categoryService;
+    CategoryRepository categoryRepository;
 
     @Override
     public List<Category> findAll() {
-        return (List<Category>) categoryService.findAll();
+        return (List<Category>) categoryRepository.findAll();
     }
 
     @Override
     public Category save(Category newCategory) {
-        return categoryService.save(newCategory);
+        return categoryRepository.save(newCategory);
     }
 
     @Override
     public void deletedById(Long id) {
-        categoryService.deletedById(id);
+        categoryRepository.deleteById(id);
 
     }
 }

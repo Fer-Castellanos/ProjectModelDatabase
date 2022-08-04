@@ -1,6 +1,6 @@
-package controller;
+package com.example.RestaurantAcc.controller;
 
-import entity.Category;
+import com.example.RestaurantAcc.entity.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import service.CategoryService;
+import com.example.RestaurantAcc.service.CategoryService;
 
 import java.util.List;
 
@@ -44,10 +44,7 @@ public class CategoryController {
 
     @PutMapping("/update-Category")
     Category updateProduct(@RequestBody Category updateProduct, @PathVariable Long id) {
-        Integer product = updateProduct.getProduct();
-        System.out.println(product);
-        Category category = new Category();
-        updateProduct.setProduct(product);
+
         Category categoryProduct = categoryService.save(updateProduct);
         return categoryProduct;
 
